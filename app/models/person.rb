@@ -1,5 +1,8 @@
 class Person < ActiveRecord::Base
 
+  has_many :assignments
+  has_many :locations, through: :assignments
+
   validates :last_name, presence: true
   validates :title || :first_name, presence: true
 
