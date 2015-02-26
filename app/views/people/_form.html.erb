@@ -1,5 +1,14 @@
 <%= form_for @person do |f| %>
 
+  <% if @person.errors.any? %>
+    <div class="form-group">
+      <div class="error_explanation">
+        <h3>This person could not be created</h3><br />
+        You must enter a title/last name or a first/last name
+      </div>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, autofocus: true, placeholder: "i.e. Dr.", class: "form-control" %>
