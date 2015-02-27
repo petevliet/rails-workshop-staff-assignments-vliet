@@ -9,6 +9,7 @@
   <thead>
   <tr>
     <th>Name</th>
+    <th>Locations</th>
   </tr>
   </thead>
   <tbody>
@@ -16,6 +17,9 @@
     <tr>
       <td>
         <%= link_to person.full_name, person_path(person) %>
+      </td>
+      <td>
+        <%= person.assignments.count %>
       </td>
     </tr>
   <% end %>
