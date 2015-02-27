@@ -11,19 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226182645) do
+ActiveRecord::Schema.define(version: 20150226182052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "assignments", id: false, force: :cascade do |t|
-    t.integer "person_id",   null: false
-    t.integer "location_id", null: false
+  create_table "assignments", force: :cascade do |t|
+    t.integer "person_id"
+    t.integer "location_id"
     t.string  "role"
   end
-
-  add_index "assignments", ["location_id"], name: "index_assignments_on_location_id", using: :btree
-  add_index "assignments", ["person_id"], name: "index_assignments_on_person_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string "name"

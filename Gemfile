@@ -15,4 +15,6 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   gem "capybara"
   gem "quiet_assets"
+  gem "pry-rails"
+  gem "pry-byebug"
 end

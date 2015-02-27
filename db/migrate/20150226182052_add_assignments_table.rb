@@ -1,8 +1,8 @@
 class AddAssignmentsTable < ActiveRecord::Migration
   def change
-    create_join_table :people, :locations do |t|
-      t.index :person_id
-      t.index :location_id
+    create_table :assignments do |t|
+      t.belongs_to :person
+      t.belongs_to :location
       t.string :role
     end
   end

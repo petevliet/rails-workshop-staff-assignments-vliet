@@ -5,5 +5,34 @@
   <h1> <%= @person.full_name %> </h1>
 </div>
 
-<h1>Assignments</h1>
-<%= link_to '+ Add Location', new_person_assignment_path(@person) %>
+<div class="form-group">
+  <h1>Assignments</h1>
+  <div class="pull-right">
+    <%= link_to '+ Add Location', new_person_assignment_path(@person) %>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Location</th>
+    <th>Role</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @assignments.each do |assignment| %>
+    <tr>
+      <td>
+        <%= assignment.location.name %>
+      </td>
+      <td>
+        <%= assignment.role %>
+      </td>
+      <td>
+        <%= link_to 'edit', '#' %>
+        <%= link_to 'delete', '#' %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

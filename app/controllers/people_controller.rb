@@ -6,6 +6,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
+    @assignments = @person.assignments.all
   end
 
   def new
