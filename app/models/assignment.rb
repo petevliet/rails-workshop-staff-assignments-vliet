@@ -7,7 +7,7 @@ class Assignment < ActiveRecord::Base
   validate :unique_location
 
   def unique_location
-    if person.assignments.find_by(location_id: location_id, role: role)
+    if person.assignments.where('id != ?', id).find_by(location_id: location_id, role: role)
      errors.add(:unique_location, "people cannot be assigned to the same location with the same role")
    end
   end
